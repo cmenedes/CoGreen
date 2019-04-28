@@ -1,0 +1,18 @@
+/* jshint indent: 2 */
+
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('resourcetype', {
+    ResourceTypeId: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    Description: {
+      type: DataTypes.STRING(100),
+      allowNull: false
+    }
+  }, {
+    tableName: 'resourcetype'
+  });
+};

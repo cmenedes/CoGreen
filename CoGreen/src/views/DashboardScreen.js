@@ -94,7 +94,7 @@ export class DashboardScreen extends React.Component {
   
     render() {
       return (
-	  //<ImageBackground source={require('../../pictures/pictures4.jpg')} style={{flex: 1}}>
+	  <ImageBackground source={require('../../pictures/background.jpg')} style={{flex: 1}}>
     <View style={styles.inner}>
       <View style={{flexDirection: 'row'}}>
       <Image style={{width: '50%', height: '70%', borderWidth: 1, borderColor: 'black', margin: 10}} source={require('../../pictures/ProfileIcon.png')}>
@@ -122,15 +122,30 @@ export class DashboardScreen extends React.Component {
           onPress={() => this.props.navigation.navigate('Rewards')}
         />	 */}
         </View>
-	 //</ImageBackground>		
+	 </ImageBackground>		
       );
     }
   }
 
   const TabNavigator = createBottomTabNavigator({
-    Dashboard: DashboardScreen,
-    Quest: QuestScreen,
-    Rewards: RewardsScreen
+    Dashboard: {
+      screen: DashboardScreen,
+      navigationOptions: {
+        tabBarLabel: <Text style={{ fontSize: 20 }}>Dashboard</Text>
+      }
+    },
+    Quest: {
+      screen: QuestScreen,
+      navigationOptions: {
+        tabBarLabel: <Text style={{ fontSize: 20 }}>Quests</Text>
+      }
+    },
+    Rewards: {
+      screen: RewardsScreen,
+      navigationOptions: {
+        tabBarLabel: <Text style={{ fontSize: 20 }}>Rewards</Text>
+      }
+    }
   });
   export default createAppContainer(TabNavigator);
 

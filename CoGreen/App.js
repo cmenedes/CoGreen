@@ -1,21 +1,37 @@
 import React from 'react';
+import { createStackNavigator, createAppContainer } from "react-navigation";
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
-}
+//import screens
+import OnboardScreen from './src/views/OnboardScreen';
+import DashboardScreen from './src/views/DashboardScreen';
+import QuestScreen from './src/views/QuestScreen';
+import QuestDetailScreen from './src/views/QuestDetailScreen';
+import RewardsScreen from './src/views/RewardsScreen';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+
+
+const AppNavigator = createStackNavigator({
+  Onboard: {
+    screen: OnboardScreen
   },
+  Dashboard: {
+    screen: DashboardScreen
+  },
+  Quests: {
+    screen: QuestScreen
+  },
+  QuestDetail: {
+    screen: QuestDetailScreen
+  },
+  Rewards: {
+    screen: RewardsScreen
+  }  
 });
+
+const AppContainer = createAppContainer(AppNavigator);
+
+
+export default AppContainer;
+
+ 
